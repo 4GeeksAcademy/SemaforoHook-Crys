@@ -9,5 +9,6 @@ export default function Titulo()  {
   </h1>
   <h2>"Control Total En Un Clic"</h2>
 </div>
+
 );
 }
