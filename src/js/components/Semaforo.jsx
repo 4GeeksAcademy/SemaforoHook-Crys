@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 
 /*
-  Semaforo.jsx - Versión definitiva
-  - Tres luces: rojo, ámbar, verde (base)
+  Semaforo.jsx 
+  - Tres luces: rojo, ámbar, verde (ESTADO POR DEFECTO)
   - Botón derecho: alterna la luz manualmente
   - Botones izquierda:
-      - Modo: alterna entre estándar y Colombia
-      - Automático: activa ciclo automático (1.5s)
-  - Pegado al Palo-Semaforo
-  - UX profesional y responsive
+      - Modo: alterna entre estándar y Colombia (CAMBIAN LOS COLORES A AMARILLO AZUL Y ROJO)
+      - Automático: activa ciclo automático (1.5s ENTRE CABIO DE LUCES)
+ 
+
 */
 
 export default function Semaforo() {
   const [luzActiva, setLuzActiva] = useState("rojo");
-  const [modoPaleta, setModoPaleta] = useState(1); // 1 = base, 2 = alterna
+  const [modoPaleta, setModoPaleta] = useState(1); // 1 =ESTADO ESTANDAR, 2 = alterna
   const [automatico, setAutomatico] = useState(true);
 
   const intervaloRef = useRef(null);
 
   const SECUENCIA = ["rojo", "ambar", "verde"];
 
-  // ------------------ Helpers ------------------
+  // ------------------ FUNCIONES------------------
 
   function avanzarLuz() {
     const idx = SECUENCIA.indexOf(luzActiva);
@@ -32,7 +32,7 @@ export default function Semaforo() {
     detenerCiclo();
     intervaloRef.current = setInterval(() => {
       avanzarLuz();
-    }, 1500); // 1.5s por luz
+    }, 1500); // SEGUNDOS EN MILISEGUNDOS PARA EL INTERCAMBIO AUTOMATICO, COMPROBAR.
   }
 
   function detenerCiclo() {
@@ -42,7 +42,7 @@ export default function Semaforo() {
     }
   }
 
-  // ------------------ Handlers ------------------
+  // ------------------BOTONES FUNCIONALES EN LOS MODOS Y AUTOMATICO------------------
 
   function alternarModoPaleta() {
     setModoPaleta(modoPaleta === 1 ? 2 : 1);
@@ -64,7 +64,7 @@ export default function Semaforo() {
     setAutomatico(false);
   }
 
-  // ------------------ Ciclo automático ------------------
+  // ------------------ CICLO AUTOMATICO CON USEEFFECT------------------
   useEffect(() => {
     if (automatico) {
       iniciarCicloAutomatico();
@@ -74,7 +74,7 @@ export default function Semaforo() {
     return () => detenerCiclo();
   }, [automatico, luzActiva]);
 
-  // ------------------ Render ------------------
+  // ------------------ RENDER EN DIVS  ------------------
   return (
     <div className="semaforo-wrapper">
       
@@ -107,7 +107,7 @@ export default function Semaforo() {
       {/* Controles derecha */}
       <div className="semaforo-control derecha">
         <button className="boton-neon-dark" onClick={alternarLuzManual}>
-          Alternar luz
+          Elige la luz
         </button>
       </div>
 
