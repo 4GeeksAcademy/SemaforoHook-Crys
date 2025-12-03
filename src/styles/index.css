@@ -1,11 +1,349 @@
-/* 
+body {
+  font-family: 'Sora', sans-serif; 
+  line-height: 1.6;
+  background:
+   repeating-linear-gradient(
+    90deg,                /* Lineas verticales grises (separacion hecha a mano de las linea blancas */
+     
+    #3f3f3f 0px,
+    #3f3f3f 50px,
+    transparent 0px,
+    transparent 150px
+  ),
+  repeating-linear-gradient(
+    0deg,
+    #f2f2f2 0px,
+    #f2f2f2 14px,     /* LARGO DEL TRAZO BLANCO */
+    transparent 14px,
+    transparent 70px, /*  HUECO ENTRE TRAZOS */
+    transparent 30px,
+    transparent 115px  /*  DISTANCIA ENTRE LÍNEAS */
+  ),
+  
+  
+  linear-gradient(#3f3f3f, #3f3f3f); /*fondo de la carretera*/
+ 
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+  color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px; 
+}
 
-*/
+/* ESTILO PARA EL CONTENEDOR DEL TITULO       */
+/* ============================================ */
+.titulo-principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, #000000, #1a1a1a);
+  border-radius: 1rem;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), 0 0 60px rgba(255, 0, 255, 0.2);
+  backdrop-filter: blur(10px);
+  animation: pulseGlow 3s ease-in-out infinite alternate;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-left: 400px;
+   padding-right: 400px;
+   padding-top: 20px;
+}
+
+/* H1 con efecto neon y emojis animados */
+.titulo-principal h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-family: 'Sora', sans-serif;
+  color: #0ff; 
+  text-shadow: 
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff;
+  animation: flicker 2s infinite alternate;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Efecto para los emojis */
+.titulo-principal h1 .emoji-rojo {
+  display: inline-block;
+  animation: blinkRed 1.5s infinite alternate;
+}
+
+.titulo-principal h1 .emoji-verde {
+  display: inline-block;
+  animation: blinkGreen 1.5s infinite alternate;
+}
+
+/* H2 más sutil y elegante */
+.titulo-principal h2 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-family: 'Share Tech Mono', monospace;
+  color: #fff;
+  opacity: 0.8;
+  text-shadow: 0 0 5px rgba(255,255,255,0.3);
+  animation: floatText 4s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+/* ============================================ */
+/* ANIMACIONES SUTILES */
+/* ============================================ */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.1), 0 0 40px rgba(255, 0, 255, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.3), 0 0 60px rgba(255, 0, 255, 0.3); }
+  100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.1), 0 0 40px rgba(255, 0, 255, 0.1); }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.8; }
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Animaciones para emojis */
+@keyframes blinkRed {
+  0%, 50%, 100% { transform: scale(1); text-shadow: 0 0 5px #ff3a3a, 0 0 15px #ff3a3a; }
+  25%, 75% { transform: scale(1.2); text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+}
+
+@keyframes blinkGreen {
+  0%, 50%, 100% { transform: scale(1); text-shadow: 0 0 5px #3aff3a, 0 0 15px #3aff3a; }
+  25%, 75% { transform: scale(1.2); text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; }
+}
+
+/* ====================FINAL DEL ESTILO DE TITULO======================== */
+
+
+/* CSS DEDICADO AL PALO DE SEMAFORO*/
+
+.Palo-Semaforo {
+  background-color: black;
+  width: 5px;
+  height: 100px;
+  min-width: 50px;
+  max-width: 100px;
+
+  padding: 1rem;
+  box-sizing: border-box;
+}
+/* ====================FINAL DEL ESTILO ======================== */
+
+
+
+/* CSS DEL FOOTER*/
+
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background-color: #060606;
+  padding: 1rem 0;
+
+  text-align: center;
+  font-family: 'Sora', sans-serif;
+
+  color: #00f7ff;
+  border-top: 2px solid #00f7ff;
+
+  text-shadow: 0 0 6px #00f7ff, 0 0 12px #00e0e6;
+  box-shadow: 0 -2px 12px rgba(0, 247, 255, 0.35);
+
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+}
+
+.Footer code {
+  color: #00f7ff;
+  font-weight: 700;
+  text-shadow: 0 0 6px #00f7ff, 0 0 10px #00e0e6;
+}
+
+/* ========FINAL DEL FOOTER===========*/
+/* ===========================================================
+   VARIABLES
+   =========================================================== */
+:root {
+  --diametro-bombilla: clamp(45px, 9vw, 70px); /* más compacto */
+  --gap-bombillas: clamp(10px, 2vw, 16px);
+  --ancho-housing: clamp(110px, 20vw, 160px);
+  --housing-radius: 20px;
+  --housing-bg: linear-gradient(180deg, #0d0d0d, #000);
+  --espacio-controles: clamp(16px, 3vw, 32px);
+
+  --rojo-apagado: #6f1d1d;
+  --ambar-apagado: #6b581a;
+  --verde-apagado: #1f5f34;
+  --rojo-brillo: rgba(255,70,70,0.95);
+  --ambar-brillo: rgba(255,190,60,0.94);
+  --verde-brillo: rgba(60,220,120,0.95);
+
+  --amarillo-apagado: #7a6a10;
+  --azul-apagado: #173a5b;
+  --rojo2-apagado: #7b1e1e;
+  --amarillo-brillo: rgba(255,230,90,0.96);
+  --azul-brillo: rgba(90,170,255,0.96);
+  --rojo2-brillo: rgba(255,70,70,0.95);
+
+  --neon-acento: rgba(0,255,220,0.9);
+  --trans-rapida: 220ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* ===========================================================
+   WRAPPER
+   =========================================================== */
+.semaforo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  gap: var(--espacio-controles);
+  width: 100%;
+  max-height: calc(100vh - 10px);
+  padding: 8px;
+  position: relative;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* ===========================================================
+  css dedicado al SEMÁFORO llamando las variable
+   =========================================================== */
+.semaforo {
+  width: var(--ancho-housing);
+  background-color: black;
+  padding: calc(var(--gap-bombillas) * 1.1);
+  border-radius: var(--housing-radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-bombillas);
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(2,5,12,0.75),
+              inset 0 2px 12px rgba(12, 12, 12, 0.02);
+               transform: translateX(-20px);
+  background-color: #000;
+}
+
+/* ===========================================================
+   BOMBILLAS
+   =========================================================== */
+.bombilla {
+  width: var(--diametro-bombilla);
+  height: var(--diametro-bombilla);
+  border-radius: 50%;
+  background: #000000;
+  opacity: 0.22;
+  transition: transform var(--trans-rapida), box-shadow var(--trans-rapida), opacity var(--trans-rapida);
+  cursor: pointer;
+  box-shadow: inset -6px -10px 16px rgba(0,0,0,0.7);
+  position: relative;
+}
+.bombilla::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  top: 8%;
+  width: 72%;
+  height: 46%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* ===========================================================
+   POSICIONES
+   =========================================================== */
+.posicion-1 { order: 0; }
+.posicion-2 { order: 1; }
+.posicion-3 { order: 2; }
+
+/* ===========================================================
+   ESTADO ENCENDIDO
+   =========================================================== */
+.encendida {
+  opacity: 1;
+  transform: translateY(-6px);
+  animation: pulso-neon 1600ms infinite;
+}
+@keyframes pulso-neon {
+  0% { filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+  50% { filter: drop-shadow(0 0 18px rgba(255,255,255,0.04)); transform: translateY(-8px) scale(1.01); }
+  100% { filter: drop-shadow(0 0 0 rgba(0,0,0,0)); transform: translateY(-6px); }
+}
+
+/* ===========================================================
+   MODO 1
+   =========================================================== */
+.modo-1 .posicion-1 { background: var(--rojo-apagado); }
+.modo-1 .posicion-1.encendida { box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 20px var(--rojo-brillo), 0 0 48px rgba(255,60,60,0.28); }
+
+.modo-1 .posicion-2 { background: var(--ambar-apagado); }
+.modo-1 .posicion-2.encendida { box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 22px var(--ambar-brillo), 0 0 48px rgba(255,180,50,0.18); }
+
+.modo-1 .posicion-3 { background: var(--verde-apagado); }
+.modo-1 .posicion-3.encendida { box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 22px var(--verde-brillo), 0 0 56px rgba(60,220,120,0.18); }
+
+/* ===========================================================
+   MODO 2 (Colombia)
+   =========================================================== */
+.modo-2 .posicion-1 { background: var(--amarillo-apagado); }
+.modo-2 .posicion-1.encendida { box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 22px var(--amarillo-brillo), 0 0 56px rgba(255,225,90,0.16); }
+
+.modo-2 .posicion-2 { background: var(--azul-apagado); }
+.modo-2 .posicion-2.encendida { box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 22px var(--azul-brillo), 0 0 56px rgba(80,150,255,0.18); }
+
+.modo-2 .posicion-3 { background: var(--rojo2-apagado); }
+.modo-2 .posicion-3.encendida { box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 20px var(--rojo2-brillo), 0 0 56px rgba(255,70,70,0.16); }
+
+/* ===========================================================
+   CONTROLES NEON
+   =========================================================== */
+.semaforo-control {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform: translateX(-20px);
+}
+
+.boton-neon-dark {
+  background: rgba(8,8,12,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 14px 18px;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.6);
+  transition: box-shadow var(--trans-rapida), transform var(--trans-rapida), border-color var(--trans-rapida);
+}
+.boton-neon-dark:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--neon-acento);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 18px var(--neon-acento);
+}
+
+/* borde resplandeciente para el palo y el emaforo*/
+.Palo-Semaforo,
+.semaforo {
+  box-shadow:
+    0 0 8px rgba(255,255,255,0.5),   
+    0 0 16px rgba(255,255,255,0.3),  
+    0 0 24px rgba(255,255,255,0.2);  
+}
