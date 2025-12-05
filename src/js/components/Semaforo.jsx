@@ -1,13 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 
 /*
+
+En este Semaforo se utilizron los siguientes Hooks 
+
+useState, para gestionar los estados que cambian segun lo visto en clase 
+Const LuzActuva, La luz que esta encendida (compaginado con css)
+Const ModoPaleta, controla los modos Estandar o Colombia
+Const Automatico, control del SetINterval, activo o manual.
+
+useRef, guarda la Cont setInterval sin causar render, asi no rompe el ciclo
+
+useEffect, se utilizo para automatizar el ciclo , apaga el ciclo anterior limpia la memoria
+          y ejecuta si el usuario dio clic en automatico o manual.
+
+          
   Semaforo.jsx 
   - Tres luces: rojo, ámbar, verde (ESTADO POR DEFECTO)
+  en modo Colombia (luces Amarillo Azul y Rojo)
   - Botón derecho: alterna la luz manualmente
   - Botones izquierda:
       - Modo: alterna entre estándar y Colombia (CAMBIAN LOS COLORES A AMARILLO AZUL Y ROJO)
       - Automático: activa ciclo automático (1.5s ENTRE CABIO DE LUCES)
  
+
 
 */
 
